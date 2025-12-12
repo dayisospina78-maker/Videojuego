@@ -90,6 +90,14 @@ public class NotaMusical : MonoBehaviour
 
             StartCoroutine(ImpulsoTemporal());
         }
+        PlayerScore jugador = collision.gameObject.GetComponent<PlayerScore>();
+        if (jugador != null)
+        {
+            GameManager gm = FindObjectOfType<GameManager>();
+            if (gm != null)
+                gm.SumarPunto(jugador.jugadorID);
+        }
+
     }
 
     void OnCollisionExit2D(Collision2D collision)
